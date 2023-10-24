@@ -38,12 +38,7 @@ try:
     dia = fecha.day
     mes_numero = fecha.month
     año = fecha.year
-
-
     mes = meses[mes_numero]
 
 
     print(f"La fecha es: {dia} de {mes} de {año}")
-except ValueError:
-    print("Formato de fecha incorrecto. Asegúrate de ingresar la fecha en formato dd/mm/aaaa.")
-
