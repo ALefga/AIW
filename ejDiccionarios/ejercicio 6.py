@@ -29,3 +29,8 @@ while True:
     print("Información de la persona:")
     for clave, valor in persona.items():
         print(f"{clave}: {valor}")
+
+
+
+
+
