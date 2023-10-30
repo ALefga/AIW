@@ -14,4 +14,15 @@ pantalla la cantidad cobrada hasta el momento y la cantidad pendiente de cobro.
 
 @author: gflogar
 """
-
+lista = []
+seguir =True
+totalsum = 0
+totalmul = 1
+while seguir:
+    numero =int(input("introduce un numero: "))
+    lista.append(numero)
+    seguir = input ("quieres seguir añadiendo numero? ") ("si/no")== "si"
+for x in lista:
+    totalsum += x
+    totalmul += x
+    print ("total suma:", totalsum, "total multiplicacion:", )
