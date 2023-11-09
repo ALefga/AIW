@@ -1,23 +1,24 @@
 from flask import Flask, request, render_template
-
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=["POST","GET"])
 def hola():
-    return render_template("index.html")
+    if (request.method == "POST"):
+        user = request.form.get("usuario")
+        password = request.form.get("contrasena")
+        print(user, password)
+    return render_template("index.html", user=user, password=password)
 
-@app.route("/")
-def hola():
-    return "Hola, Bienvenido"
-@app.route()
+@app.route("/baloncesto")
 def baloncesto():
-    return "Hola, esta es laweb de baloncesto!"
-@app.route("/pruebaPost", methods=["POST", "GET"])
+    return "Hola, esta es la web de baloncesto!"
+
+@app.route("/pruebaPost", methods=["POST","GET"])
 def pruebaPost():
     if (request.method == "POST"):
-        return "esto es un POST"
+        return "Esto es un POST"
     elif (request.method == "GET"):
-        return "esto es un get"
-    return "hola, esta es la web de baloncesto!"
+        return "Esto es un GET"
+    return "Hola, esta es la web de baloncesto!"
 
 app.run()
