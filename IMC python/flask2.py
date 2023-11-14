@@ -4,25 +4,26 @@ app = Flask(__name__)
 
 @app.route("/IMC", methods=["POST","GET"])
 def calcular_imc_flask():
-    if request.method == "POST":
-        peso = float(request.form.get("Peso"))
-        altura = float(request.form.get("Altura"))
+    imc=0
+    clasificacion=""
+    try:
+        if request.method == "POST":
+            peso = float(request.form.get("Peso"))
+            altura = float(request.form.get("Altura"))
+            imc = peso / (altura ** 2)
 
-        imc = peso / (altura ** 2)
-
-        if imc < 18.5:
-            clasificacion = "Bajo peso"
-        elif imc >= 18.5 and imc <= 24.9:
-            clasificacion = "Normal"
-        elif imc >= 25 and imc <= 29.9:
-            clasificacion = "Sobrepeso"
-        else:
-            clasificacion = "Obesidad"
-
-        return render_template("index1.html", imc=imc, clasificacion=clasificacion)
-    else:
-        return render_template("index1.html")
-
+            if imc < 18.5:
+                clasificacion = "Bajo peso"
+            elif imc >= 18.5 and imc <= 24.9:
+                clasificacion = "Normal"
+            elif imc >= 25 and imc <= 29.9:
+                clasificacion = "Sobrepeso"
+            else:
+                clasificacion = "Obesidad"
+    except ValueError:
+        msg= "ingrese solo numeros"
+        return render_template("index1.html",msg=msg )
+    return render_template("index1.html", imc=imc, clasificacion=clasificacion)
 if __name__ == "__main__":
     app.run()
 """

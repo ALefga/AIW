@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Calculadora de IMC</title>
 </head>
+
 <body>
     <h1>Calculadora de IMC</h1>
     <form action="/IMC" method="POST">
@@ -11,11 +13,14 @@
         <label for="Altura">Altura (metros):</label>
         <input type="text" name="Altura" id="Altura" required><br><br>
         <input type="submit" value="Calcular">
+        <p>{{ msg }}</p>
+        
     </form>
     {% if imc and clasificacion %}
-        <h2>Resultado:</h2>
-        <p>Tu IMC es: {{ imc }}</p>
-        <p>Clasificación: {{ clasificacion }}</p>
+    <h2>Resultado:</h2>
+    <p>Tu IMC es: {{ imc }}</p>
+    <p>Clasificación: {{ clasificacion }}</p>
     {% endif %}
 </body>
+
 </html>
