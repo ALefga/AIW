@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <title>IMC</title>
+    <title>Calculadora de IMC</title>
 </head>
 <body>
-    <h2>IMC</h2>
-    <form action="/" method="post"> 
-        <label for="peso">Peso:</label>
-        <input type="" id="peso" name="peso" required><br><br>
-
-        <label for="altura">Altura:</label>
-        <input type="" id="altura" name="altura" required><br><br>
-
-        <input type="submit" value="IMC">
+    <h1>Calculadora de IMC</h1>
+    <form action="/IMC" method="POST">
+        <label for="Peso">Peso (kg):</label>
+        <input type="text" name="Peso" id="Peso" required><br><br>
+        <label for="Altura">Altura (metros):</label>
+        <input type="text" name="Altura" id="Altura" required><br><br>
+        <input type="submit" value="Calcular">
     </form>
+    {% if imc and clasificacion %}
+        <h2>Resultado:</h2>
+        <p>Tu IMC es: {{ imc }}</p>
+        <p>Clasificación: {{ clasificacion }}</p>
+    {% endif %}
 </body>
-
-{{ weight }}
-
-{{ height }}
-
 </html>
